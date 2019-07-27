@@ -4,6 +4,7 @@ import router from './router'
 import store from './store'
 import Mint from 'mint-ui'
 import Vant from "vant"
+import axios from './axios'
 import "vant/lib/index.css"
 import 'mint-ui/lib/style.css'
 
