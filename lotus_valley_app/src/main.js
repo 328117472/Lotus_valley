@@ -5,9 +5,11 @@ import store from './store'
 import Mint from 'mint-ui'
 import Vant from "vant"
 import "vant/lib/index.css"
+import 'mint-ui/lib/style.css'
 
 Vue.config.productionTip = false;
 Vue.use(Vant)
+Vue.use(Mint)
 
 new Vue({
 router,
