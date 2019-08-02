@@ -16,14 +16,16 @@
         </li>
       </ul>
       <div class="my_user">
-        <div v-show="tid==1">
+        <div v-show="tid==1" class="icon">
           <!-- 账号登陆框 -->
           <span>
             
           </span>
           <input type="text" placeholder="用户名/邮箱/手机号" />
           <br>
-          <span>123</span>
+          <span>
+            
+          </span>
           <input type="password" placeholder="密码"/>
         </div>
         <div v-show="tid==2">
@@ -46,17 +48,19 @@
 export default {
   data() {
     return {
-      tid:1,
-      uid:1
+      tid:1,//判断使用哪种登陆
+      uid:1//用户uid
     }
   },
   methods: {
     change_login(id){
+      //切换登陆
         this.tid=id
       //切换登陆方式
     },
     login(){
-      sessionStorage.setItem("uid", this.uid)
+    // 登陆及保存uid
+      sessionStorage.setItem("uid", this.uid);
     }
   },
 };
@@ -114,12 +118,23 @@ export default {
 // .my_user > div > input + input {
 //   margin-top: 65px;//
 // }
-.my_user > div >span:first-child{
+.my_user > .icon>span:first-child{
   display: inline-block;//行内快
   height: 25px;//高
   width: 25px;//宽
   background: url('../../imgs/login/loginIcon.png') no-repeat;//背景图
   background-position:0px -30px;//背景图位移
+  // z-index: 99
+  position:absolute;//绝对定位
+  left:20px;
+  top:6px
+}
+.my_user > .icon>span:nth-child(4){
+  display: inline-block;//行内快
+  height: 25px;//高
+  width: 25px;//宽
+  background: url('../../imgs/login/loginIcon.png') no-repeat;//背景图
+  background-position:0px -60px;//背景图位移
   // z-index: 99
   position:absolute;//绝对定位
   left:20px;

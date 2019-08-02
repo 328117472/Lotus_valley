@@ -3,7 +3,7 @@
 <div id="nav">
   <van-tabbar v-model="active">
     <van-tabbar-item icon="home-o" name="home"  replace
-    to="/index">首页</van-tabbar-item>
+    to="/">首页</van-tabbar-item>
     <van-tabbar-item icon="search" name="type">分类</van-tabbar-item>
     <van-tabbar-item icon="search" name="sell">清仓</van-tabbar-item>
     <van-tabbar-item icon="shopping-cart-o" name="friends">购物车</van-tabbar-item>
