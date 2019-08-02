@@ -9,12 +9,14 @@ import reg from './components/login/reg.vue'
 Vue.use(Router)
 
 export default new Router({
-  mode: 'history',
   base: process.env.BASE_URL,
-  routes: [{path: '/user',component: login,
+  routes: [
+    {path: '/user',component: user,
       children: [
-        {path: 'login',component: login},
-        {path: 'reg',component: reg},]
-    }
+        // {path: '/',redirect: login},
+        {path: 'login',component: login}
+      ]
+    },
+    {path: '/reg',component: reg}
   ]
 })

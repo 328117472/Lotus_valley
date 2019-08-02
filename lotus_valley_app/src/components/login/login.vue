@@ -38,7 +38,7 @@
         </div>
       </div>
     </div>
-    <router-link to="/user/reg">注册</router-link>
+    <a href="javasrcipt:;" @click="login">登陆</a>
   </div>
 </template>
 
@@ -47,12 +47,16 @@ export default {
   data() {
     return {
       tid:1,
+      uid:1
     }
   },
   methods: {
     change_login(id){
         this.tid=id
       //切换登陆方式
+    },
+    login(){
+      sessionStorage.setItem("uid", this.uid)
     }
   },
 };
