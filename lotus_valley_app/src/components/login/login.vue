@@ -46,17 +46,19 @@
 export default {
   data() {
     return {
-      tid:1,
-      uid:1
+      tid:1,//判断使用哪种登陆
+      uid:1//用户uid
     }
   },
   methods: {
     change_login(id){
+      //切换登陆
         this.tid=id
       //切换登陆方式
     },
     login(){
-      sessionStorage.setItem("uid", this.uid)
+    // 登陆及保存uid
+      sessionStorage.setItem("uid", this.uid);
     }
   },
 };
