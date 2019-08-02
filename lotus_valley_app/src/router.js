@@ -13,8 +13,8 @@ export default new Router({
   base: process.env.BASE_URL,
   routes: [{path: '/user',component: login,
       children: [
-        {path: '/login',component: login},
-        {path: '/reg',component: reg},]
+        {path: 'login',component: login},
+        {path: 'reg',component: reg},]
     }
   ]
 })

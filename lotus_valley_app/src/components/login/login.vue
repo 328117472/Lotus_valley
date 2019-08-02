@@ -38,7 +38,7 @@
         </div>
       </div>
     </div>
-    <router-link to="/reg">注册</router-link>
+    <router-link to="/user/reg">注册</router-link>
   </div>
 </template>
 
