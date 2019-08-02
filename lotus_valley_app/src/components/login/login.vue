@@ -9,14 +9,14 @@
       <ul>
         <!-- 上面选择需要用什么登陆 -->
         <li>
-          <p @click="change_login">账号登陆</p>
+          <p @click="change_login(1)">账号登陆</p>
         </li>
         <li>
-          <p @click="change_login">手机动态登陆</p>
+          <p @click="change_login(2)">手机动态登陆</p>
         </li>
       </ul>
       <div class="my_user">
-        <div v-show="login_name">
+        <div v-show="tid==1">
           <!-- 账号登陆框 -->
           <span>
             
@@ -26,8 +26,8 @@
           <span>123</span>
           <input type="password" placeholder="密码"/>
         </div>
-        <div v-show="login_phone">
-          <!-- 账号登陆框 -->
+        <div v-show="tid==2">
+          <!-- 手机动态登陆框 -->
           <span>
             
           </span>
@@ -38,6 +38,7 @@
         </div>
       </div>
     </div>
+    <router-link to="/reg">注册</router-link>
   </div>
 </template>
 
@@ -45,23 +46,13 @@
 export default {
   data() {
     return {
-      login_name:true,//账号登陆
-      login_phone:false//手机登陆
+      tid:1,
     }
   },
   methods: {
-    change_login(){
+    change_login(id){
+        this.tid=id
       //切换登陆方式
-      // console.log(11)
-      if(this.login_name){
-        //如果user_name显示,那user_phone不显示
-        this.login_name=false;
-        this.login_phone=true;
-      }else{
-        //如果user_name不显示,那user_phone显示
-        this.login_name=true;
-        this.login_phone=false;
-      }
     }
   },
 };
