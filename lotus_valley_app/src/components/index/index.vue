@@ -51,13 +51,10 @@
           />
         </a>
       </van-col>
-      <van-col span="8" style="margin:0.2rem">
+      <van-col span="8" style="margin:0.7rem">
         <van-swipe style="height: 20px;" vertical :autoplay="2000">
-          <van-swipe-item>1</van-swipe-item>
-          <van-swipe-item>2</van-swipe-item>
-          <van-swipe-item>3</van-swipe-item>
-          <van-swipe-item>4</van-swipe-item>
-          
+          <van-swipe-item v-for="(i, index) in news" :key="index"><a href="javascript:;">{{i.text}}</a></van-swipe-item>
+          <div class="custom-indicator" slot="indicator"></div>
         </van-swipe>
       </van-col>
     </van-row>
@@ -112,6 +109,7 @@ export default {
           img_src: require("../../imgs/index/b5bfe5087d2a47158bbfd530d19db9a8.jpg")
         }
       ],
+      // 宫格导航
       swipes: [
         {
           id: 0,
@@ -163,6 +161,25 @@ export default {
           name: "值得买",
           img_src: require("../../imgs/index/b71d3a63a48e44e3bb585d918361c458.jpg")
         }
+      ],
+      // 头条消息
+      news:[
+        {
+          id:0,
+          text:"酒仙网线下实体火爆招商中"
+        },
+        {
+          id:1,
+          text:"国台限时特惠 买一送一"
+        },
+        {
+          id:2,
+          text:"古井贡狂欢节 全场满399返150"
+        },
+        {
+          id:3,
+          text:"酒鬼酒专场 领券下单更优惠"
+        }
       ]
     };
   },
@@ -190,5 +207,8 @@ img {
 // 宫格取消填充 (无效)
 .van-grid-item__content {
   padding: 0;
+}
+a{
+  color:#333;
 }
 </style>

@@ -6,6 +6,7 @@ import user from './components/login/user.vue';//用户页面
 import login from './components/login/login.vue';//登陆页面
 import reg from './components/login/reg.vue';//注册页面
 import a from './components/login/a.vue';//注册页面
+import spike from "./components/index/comment/spikeBox.vue";//秒拍
 
 Vue.use(Router);
 
@@ -19,10 +20,9 @@ export default new Router({
         {path: 'login',component: login},
         {path:"reg",component:reg},
         {path:"a",component:a},
-          
-        
       ]
     },
+    {path: '/spike',component: spike},
     
     // {
     //   path: '/reg',
