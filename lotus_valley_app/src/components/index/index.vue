@@ -1,9 +1,9 @@
 <template>
   <div>
     <!-- 轮播图 -->
-    <van-swipe :autoplay="3000">
+    <van-swipe :autoplay="3000" @change="onChange">
       <van-swipe-item v-for="(image, index) in images" :key="index">
-        <img :src="image.img_src"/>
+        <img :src="image.img_src" />
       </van-swipe-item>
     </van-swipe>
     <!-- 宫格导航 -->
@@ -40,12 +40,10 @@
         </a>
       </van-col>
     </van-row>
-        <van-row>
-      
-      <van-col span="12"></van-col>
-    </van-row>
+
+    <!-- 头条 -->
     <van-row>
-      <van-col span="3">
+      <van-col span="3" style="margin:0.7rem">
         <a href="javascript:;">
           <img
             src="https://img09.jiuxian.com/bill/2018/0131/dc91033804f74f8c82bd8feec19ac915.jpg"
@@ -53,7 +51,15 @@
           />
         </a>
       </van-col>
-      <van-col span="12"></van-col>
+      <van-col span="8" style="margin:0.2rem">
+        <van-swipe style="height: 20px;" vertical :autoplay="2000">
+          <van-swipe-item>1</van-swipe-item>
+          <van-swipe-item>2</van-swipe-item>
+          <van-swipe-item>3</van-swipe-item>
+          <van-swipe-item>4</van-swipe-item>
+          
+        </van-swipe>
+      </van-col>
     </van-row>
   </div>
 </template>
@@ -62,6 +68,8 @@
 export default {
   data() {
     return {
+      current: 0,
+      // 轮播图片
       images: [
         {
           id: 0,
@@ -158,7 +166,12 @@ export default {
       ]
     };
   },
-  created() {}
+  created() {},
+  methods: {
+    onChange(index) {
+      this.current = index;
+    }
+  }
 };
 </script>
 
