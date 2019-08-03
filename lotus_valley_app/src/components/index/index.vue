@@ -3,13 +3,13 @@
     <!-- 轮播图 -->
     <van-swipe :autoplay="3000">
       <van-swipe-item v-for="(image, index) in images" :key="index">
-        <img v-lazy="image" />
+        <img :src="image.img_src"/>
       </van-swipe-item>
     </van-swipe>
     <!-- 宫格导航 -->
     <van-grid :border="false" :column-num="5" :center="false">
       <van-grid-item v-for="(swipe, index) in swipes" :key="index">
-        <van-image :src="swipe.img_src"/>
+        <van-image :src="swipe.img_src" />
       </van-grid-item>
     </van-grid>
     <van-row>
@@ -40,6 +40,21 @@
         </a>
       </van-col>
     </van-row>
+        <van-row>
+      
+      <van-col span="12"></van-col>
+    </van-row>
+    <van-row>
+      <van-col span="3">
+        <a href="javascript:;">
+          <img
+            src="https://img09.jiuxian.com/bill/2018/0131/dc91033804f74f8c82bd8feec19ac915.jpg"
+            alt
+          />
+        </a>
+      </van-col>
+      <van-col span="12"></van-col>
+    </van-row>
   </div>
 </template>
 
@@ -48,14 +63,46 @@ export default {
   data() {
     return {
       images: [
-        "https://img08.jiuxian.com/bill/2019/0801/c61ea92218d541d894c5c2db4d17a954.jpg",
-        "https://img09.jiuxian.com/bill/2019/0802/a11f4fb8ea2b431b9bd739795954d616.jpg",
-        "https://img08.jiuxian.com/bill/2019/0801/4d3346b5a6474c4c823a28d4a8613ec0.jpg",
-        "https://img09.jiuxian.com/bill/2019/0801/9bae3d570ecf4538b749a2a955a145da.jpg",
-        "https://img07.jiuxian.com/bill/2019/0802/d37096ce34b84e12882ac2b84ef97dc1.jpg",
-        "https://img10.jiuxian.com/bill/2019/0801/9b9b7199033145018ec93226956043b4.jpg",
-        "https://img10.jiuxian.com/bill/2019/0801/0721a85f2a5a45599e3fe2c3d3727acb.jpg",
-        "https://img08.jiuxian.com/bill/2019/0801/b5bfe5087d2a47158bbfd530d19db9a8.jpg"
+        {
+          id: 0,
+          name: "狂欢节",
+          img_src: require("../../imgs/index/c61ea92218d541d894c5c2db4d17a954.jpg")
+        },
+        {
+          id: 1,
+          name: "10斤大坛会场",
+          img_src: require("../../imgs/index/a11f4fb8ea2b431b9bd739795954d616.jpg")
+        },
+        {
+          id: 2,
+          name: "超级买手",
+          img_src: require("../../imgs/index/9bae3d570ecf4538b749a2a955a145da.jpg")
+        },
+        {
+          id: 3,
+          name: "十年老酒会场",
+          img_src: require("../../imgs/index/4d3346b5a6474c4c823a28d4a8613ec0.jpg")
+        },
+        {
+          id: 4,
+          name: "整箱会场",
+          img_src: require("../../imgs/index/d37096ce34b84e12882ac2b84ef97dc1.jpg")
+        },
+        {
+          id: 5,
+          name: "99元封顶会场",
+          img_src: require("../../imgs/index/9b9b7199033145018ec93226956043b4.jpg")
+        },
+        {
+          id: 6,
+          name: "红洋会场",
+          img_src: require("../../imgs/index/0721a85f2a5a45599e3fe2c3d3727acb.jpg")
+        },
+        {
+          id: 7,
+          name: "品牌会场",
+          img_src: require("../../imgs/index/b5bfe5087d2a47158bbfd530d19db9a8.jpg")
+        }
       ],
       swipes: [
         {
@@ -107,7 +154,7 @@ export default {
           id: 9,
           name: "值得买",
           img_src: require("../../imgs/index/b71d3a63a48e44e3bb585d918361c458.jpg")
-        },
+        }
       ]
     };
   },
@@ -126,8 +173,9 @@ img {
 /* .van-swipe__indicators {
     position: absolute;
     left: 78% !important;
+*/
 // 宫格取消填充 (无效)
 .van-grid-item__content {
-  padding: 0 !important;
-} */
+  padding: 0;
+}
 </style>
