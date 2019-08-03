@@ -1,30 +1,27 @@
 <template>
   <div>
     <div v-show="!uid">
-    <login></login>
-    <reg></reg>
-    <a href=""></a>
+      <!-- 注册及登陆模块 -->
+      <router-view></router-view>
+      <!--登陆组件-->
+      <!-- <reg></reg>注册组件 -->
+      <!-- <a href></a> -->
     </div>
-    <div v-show="uid">信息</div>
   </div>
 </template>
 
 <script>
-import login from './login';
-import reg from './reg';
 export default {
   data() {
     return {
-      uid:""
+      uid: "" //账号id
     };
   },
-  components: {
-    login: login,
-    reg:reg
-  },
   created() {
-    this.uid=sessionStorage.getItem("uid")
-    // console.log(sessionStorage)
+    this.uid = sessionStorage.getItem("uid");
+      if(!this.uid){
+      this.$router.push("/user/login")
+      }
   },
 };
 </script>

@@ -1,12 +1,15 @@
 <template>
   <div>
-    <!-- 注册页面 -->
-    注册</div>
+用户信息
+  </div>
 </template>
 
 <script>
-export default {};
+  export default {
+    
+  }
 </script>
 
 <style lang="scss" scoped>
+
 </style>

@@ -9,26 +9,26 @@
       <ul>
         <!-- 上面选择需要用什么登陆 -->
         <li>
-          <p @click="change_login(1)">账号登陆</p>
+          <p @click="change_login(1)" class="color_one">账号登陆</p>
         </li>
         <li>
-          <p @click="change_login(2)">手机动态登陆</p>
+          <p @click="change_login(2)" class="color_two">手机动态登陆</p>
         </li>
       </ul>
       <div class="my_user">
-        <div v-show="tid==1" class="icon">
+        <div v-show="tid==1" >
           <!-- 账号登陆框 -->
           <span>
             
           </span>
-          <input type="text" placeholder="用户名/邮箱/手机号" />
+          <input type="text" placeholder="用户名/邮箱/手机号" v-model="uname"/>
           <br>
           <span>
             
           </span>
-          <input type="password" placeholder="密码"/>
+          <input type="password" placeholder="密码" v-model="upwd"/>
         </div>
-        <div v-show="tid==2">
+        <div v-show="tid==2" >
           <!-- 手机动态登陆框 -->
           <span>
             
@@ -40,6 +40,8 @@
         </div>
       </div>
     </div>
+    <router-link to="/user/reg">注册</router-link>
+    <br>
     <a href="javasrcipt:;" @click="login">登陆</a>
   </div>
 </template>
@@ -49,19 +51,37 @@ export default {
   data() {
     return {
       tid:1,//判断使用哪种登陆
-      uid:1//用户uid
+      uid:1,//用户uid
+      uname:"",//用户账号
+      upwd:"",//用户密码
     }
   },
   methods: {
     change_login(id){
       //切换登陆
         this.tid=id
+        
       //切换登陆方式
+      if(id==1){
+        let p1=document.getElementsByClassName("color_one")[0]
+        let p2=document.getElementsByClassName("color_two")[0]
+        p1.classList.add("my_color")
+        p2.classList.remove("my_color")
+      }else if(id==2){
+        let p1=document.getElementsByClassName("color_one")[0]
+        let p2=document.getElementsByClassName("color_two")[0]
+        p2.classList.add("my_color")
+        p1.classList.remove("my_color")
+      }
     },
-    login(){
+      login(){
     // 登陆及保存uid
       sessionStorage.setItem("uid", this.uid);
-    }
+      // console.log(this.user_name,this.upwd)
+      this.$router.push("/user/a")
+      // this.reload()
+      // console.log(111)
+    },
   },
 };
 </script>
@@ -97,7 +117,7 @@ export default {
   color: #626365; //字体颜色
   font-size: 14px; //字体大小;
 }
-.my_login > ul > li > p:hover {
+.my_color {
   border-bottom: 2px solid red; //p下边框
   color: #de4943; //字体颜色
 }
@@ -118,7 +138,7 @@ export default {
 // .my_user > div > input + input {
 //   margin-top: 65px;//
 // }
-.my_user > .icon>span:first-child{
+.my_user > div>span:first-child{
   display: inline-block;//行内快
   height: 25px;//高
   width: 25px;//宽
@@ -129,7 +149,7 @@ export default {
   left:20px;
   top:6px
 }
-.my_user > .icon>span:nth-child(4){
+.my_user > div>span:nth-child(4){
   display: inline-block;//行内快
   height: 25px;//高
   width: 25px;//宽
